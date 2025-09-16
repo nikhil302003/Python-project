@@ -1,0 +1,62 @@
+#Transport Booking System
+
+# Base class: Transport
+
+# Derived classes: Bus, Train, Flight
+
+# Override method book_ticket()
+
+
+class transport():
+    def booking(self):
+        print("thank you!!")
+        
+class bus(transport):
+    def booking(self, name, seat):
+        price_per_ticket=200
+        total=seat*price_per_ticket
+        gst=total*0.1
+        total_bill=total+gst
+        print("<------------------------------------------------>")
+        print(f"your name : {name}")
+        print(f"Your total fare is {total_bill} of {seat} seat.")   
+        print("<------------------------------------------------>")
+class train(transport):
+    def booking(self, name, seat):
+        price_per_ticket=450
+        total=seat*price_per_ticket
+        gst=total*0.1
+        total_bill=total+gst
+        print("<------------------------------------------------>")
+        print(f"your name : {name}")
+        print(f"Your total fare is {total_bill} of {seat} seat.")   
+        print("<------------------------------------------------>")
+class Flight(transport):
+    def booking(self, name, seat):
+        price_per_ticket=1000
+        discount= 0.1 if seat>=3 else 0
+        total=seat*price_per_ticket
+        gst=total*0.1
+        total_bill=total+gst-discount
+        print("<------------------------------------------------>")
+        print(f"your name : {name}")
+        print(f"Your total fare is {total_bill} of {seat} seat.")   
+        print("<------------------------------------------------>")
+print("<-------------ticket Booking------------->")
+name=input("Enter your name : ")
+mean="""
+        1.Bus
+        2.Train
+        3.Flight
+        """
+print(mean)
+choice=int(input("Enter your choice (1-3): "))
+seat=int(input("Enter how many seat you want: "))
+if choice==1:
+    transport=bus()
+elif choice==2:
+    transport=train()
+elif choice==3:
+    transport=Flight()
+transport.booking(name,seat)
+        
